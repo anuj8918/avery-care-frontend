@@ -144,9 +144,22 @@ export default function ScheduleHealthCall() {
       return;
     }
 
-    const newScheduledAt = `${editedDate}T${editedTime}:00`;
+    // 1. Create a Date object from the local date and time inputs.
+    //    This object will be in the user's local timezone (e.g., IST).
+    const newScheduledDateTime = new Date(`${editedDate}T${editedTime}`);
+
+    // 2. Check if the selected time is in the past.
+    if (newScheduledDateTime < new Date()) {
+        toast.error("⚠️ You cannot update a call to a time in the past.");
+        return;
+    }
+
+    // 3. Convert the local Date object to a UTC ISO string.
+    //    This is the standard format servers love! (e.g., "2025-08-25T11:30:00.000Z")
+    const newScheduledAtISO = newScheduledDateTime.toISOString();
+
     dispatch(
-      updateScheduledCallRequest({ id: callId, scheduledAt: newScheduledAt })
+      updateScheduledCallRequest({ id: callId, scheduledAt: newScheduledAtISO })
     );
     setEditingId(null);
   };
