@@ -8,6 +8,8 @@ import {
   CheckCircleIcon,
   CalendarDaysIcon,
   ClockIcon,
+  UserCircleIcon,
+  CpuChipIcon,
 } from "@heroicons/react/24/outline";
 
 export default function CallDetails() {
@@ -240,22 +242,29 @@ export default function CallDetails() {
 
       {/* Transcript Section */}
       <section className="mb-10">
-        <h3 className="text-gray-700 font-medium mb-2">Call Transcript</h3>
-        <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 text-gray-700 text-sm leading-relaxed max-h-[300px] sm:max-h-[400px] overflow-y-auto">
-          {displayData.transcript.length > 0 ? (
-            displayData.transcript.map((line, i) => (
-              <p key={i} className="mb-2 last:mb-0">
-                <span className="font-medium text-gray-900">
-                  {line.role === "assistant" ? "AI" : "User"}:
-                </span>{" "}
-                {line.message}
-              </p>
-            ))
+  <h3 className="text-gray-700 font-medium mb-2">Call Transcript</h3>
+  <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 text-gray-700 text-sm leading-relaxed max-h-[300px] sm:max-h-[400px] overflow-y-auto">
+    {displayData.transcript.length > 0 ? (
+      displayData.transcript.map((line, i) => (
+        <div key={i} className="flex items-start gap-2 mb-3">
+          {line.role === "assistant" ? (
+            <CpuChipIcon className="w-6 h-6 text-[#3fbf81] flex-shrink-0 mt-0.5" />
           ) : (
-            <p>No transcript available for this call.</p>
+            <UserCircleIcon className="w-6 h-6 text-[#3fbf81] flex-shrink-0 mt-0.5" />
           )}
+          <p className="text-gray-700">
+            <span className="font-medium text-gray-900">
+              {line.role === "assistant" ? "AI" : "User"}:
+            </span>{" "}
+            {line.message}
+          </p>
         </div>
-      </section>
+      ))
+    ) : (
+      <p>No transcript available for this call.</p>
+    )}
+  </div>
+</section>
 
       {/* Back Button */}
       <button
