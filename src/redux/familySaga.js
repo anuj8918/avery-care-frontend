@@ -14,7 +14,7 @@ import {
     updateFamilyMemberSuccess,
     updateFamilyMemberFailure,
 } from "./familySlice";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const selectAuthToken = (state) => state.auth.user?.token;
 const API_BASE_URL = "https://avery-care-backend-3.onrender.com/api/family";

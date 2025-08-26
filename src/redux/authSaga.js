@@ -4,7 +4,7 @@ import {
   signupRequest, signupSuccess, signupFailure,
   verifyOtpRequest, verifyOtpSuccess, verifyOtpFailure,
 } from "./authSlice";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const API_BASE_URL = "https://avery-care-backend-3.onrender.com/api/auth";
 

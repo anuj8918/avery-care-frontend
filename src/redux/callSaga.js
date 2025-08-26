@@ -1,6 +1,6 @@
 import { call, put, takeLatest, select } from "redux-saga/effects";
 import axios from "axios";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import {
   scheduleHealthCallRequest,
   scheduleHealthCallSuccess,

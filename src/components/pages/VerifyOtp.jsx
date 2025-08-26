@@ -94,54 +94,54 @@ export default function VerifyOtp() {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {/* Email OTP */}
           {/* Email OTP */}
-<div>
-  <label htmlFor="emailOtp" className="sr-only">
-    Email OTP
-  </label>
-  <input
-    id="emailOtp"
-    name="emailOtp"
-    type="text"
-    inputMode="numeric"
-    pattern="\d{4}" // regex: exactly 4 digits
-    maxLength={4}
-    required
-    autoComplete="one-time-code"
-    placeholder="Enter 4-digit Email OTP"
-    value={emailOtp}
-    onChange={(e) => {
-      const value = e.target.value.replace(/\D/g, ""); // remove non-digits
-      setEmailOtp(value.slice(0, 4)); // restrict to 4 digits
-    }}
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none
+          <div>
+            <label htmlFor="emailOtp" className="sr-only">
+              Email OTP
+            </label>
+            <input
+              id="emailOtp"
+              name="emailOtp"
+              type="text"
+              inputMode="numeric"
+              pattern="\d{4}" // regex: exactly 4 digits
+              maxLength={4}
+              required
+              autoComplete="one-time-code"
+              placeholder="Enter 4-digit Email OTP"
+              value={emailOtp}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, ""); // remove non-digits
+                setEmailOtp(value.slice(0, 4)); // restrict to 4 digits
+              }}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none
                focus:ring-2 focus:ring-[#3fbf81] focus:border-[#3fbf81] placeholder-gray-400 transition"
-  />
-</div>
+            />
+          </div>
 
-{/* Mobile OTP */}
-<div>
-  <label htmlFor="mobileOtp" className="sr-only">
-    Mobile OTP
-  </label>
-  <input
-    id="mobileOtp"
-    name="mobileOtp"
-    type="text"
-    inputMode="numeric"
-    pattern="\d{4}"
-    maxLength={4}
-    required
-    autoComplete="one-time-code"
-    placeholder="Enter 4-digit Mobile OTP"
-    value={mobileOtp}
-    onChange={(e) => {
-      const value = e.target.value.replace(/\D/g, "");
-      setMobileOtp(value.slice(0, 4));
-    }}
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none
+          {/* Mobile OTP */}
+          <div>
+            <label htmlFor="mobileOtp" className="sr-only">
+              Mobile OTP
+            </label>
+            <input
+              id="mobileOtp"
+              name="mobileOtp"
+              type="text"
+              inputMode="numeric"
+              pattern="\d{4}"
+              maxLength={4}
+              required
+              autoComplete="one-time-code"
+              placeholder="Enter 4-digit Mobile OTP"
+              value={mobileOtp}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, "");
+                setMobileOtp(value.slice(0, 4));
+              }}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none
                focus:ring-2 focus:ring-[#3fbf81] focus:border-[#3fbf81] placeholder-gray-400 transition"
-  />
-</div>
+            />
+          </div>
 
 
           {/* Submit Button */}

@@ -10,8 +10,9 @@ import PublicRoute from "./components/PublicRoute";
 import AdminProtectedRoute from "./components/AdminProtectRoute";
 
 // Toastify CSS for notifications
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer } from "react-toastify";
+import { Toaster } from "react-hot-toast";
+// import "react-toastify/dist/ReactToastify.css";
 import "react-phone-input-2/lib/style.css";
 
 // --- Public Pages ---
@@ -114,10 +115,11 @@ export default function App() {
     return (
         <Router>
             <Layout />
-            <ToastContainer 
-                position="top-right" 
-                autoClose={3000} 
-                hideProgressBar={false}
+            <Toaster 
+                position="center-top"
+                toastOptions={{
+                    duration: 3000, // Equivalent to autoClose
+                }}
             />
         </Router>
     );
